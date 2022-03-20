@@ -1,0 +1,12 @@
+.listTitle {
+	padding: 8px;
+}
+
+.listTitle input {
+	background: #ddd;
+	width: 100%;
+}
+
+.listTitle h3 {
+	margin: 0;
+}

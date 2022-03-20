@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import classes from './ListTitle.module.css';
+
 const ListTitle = () => {
 	const [listTitleEdit, setListTitleEdit] = useState(false);
 
@@ -9,10 +11,10 @@ const ListTitle = () => {
 
 	let listTitleContent = <h3 onClick={editListTitleHandler}>Todo</h3>;
 	if (listTitleEdit) {
-		listTitleContent = <input type='text' />;
+		listTitleContent = <input type='text' onBlur={editListTitleHandler}/>;
 	}
 
-	return <div>{listTitleContent}</div>;
+	return <div className={classes.listTitle}>{listTitleContent}</div>;
 };
 
 export default ListTitle;

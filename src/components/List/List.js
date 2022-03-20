@@ -1,8 +1,10 @@
 import React from 'react';
 import ListTitle from './ListTitle';
 
+import classes from './List.module.css';
+
 const List = () => {
-    return <div>
+    return <div className={classes.list}>
         <ListTitle />
     </div>
 }
