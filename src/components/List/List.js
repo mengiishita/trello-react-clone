@@ -1,8 +1,9 @@
 import React from 'react';
+import ListTitle from './ListTitle';
 
 const List = () => {
     return <div>
-        <p>Todo</p>
+        <ListTitle />
     </div>
 }
 
