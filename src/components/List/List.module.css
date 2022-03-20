@@ -1,4 +1,9 @@
 .list {
 	width: 300px;
 	background: #ebecf0;
+	margin: 1rem;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
 }
