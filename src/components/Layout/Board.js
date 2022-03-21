@@ -29,13 +29,31 @@ const Board = () => {
 		setContent(updatedList);
 	};
 
+	const addList = (title) => {
+		const newListId = Math.random();
+		const newList = {
+			id: newListId,
+			title,
+			cards: []
+		}
+		const updatedList = {
+			listIds: [...content.listIds, newListId],
+			lists: {
+				...data.lists,
+				[newListId]: newList
+			}
+
+		}
+		setContent(updatedList)
+	}
+
 	const listData = content.listIds.map((listId) => {
 		const list = content.lists[listId];
 		return <List key={listId} list={list} />;
 	});
 
 	return (
-		<CardContext.Provider value={{ addCard }}>
+		<CardContext.Provider value={{ addCard, addList }}>
 			<div className={classes.board}>
 				{listData}
 				<AddItemContainer type="list"/>

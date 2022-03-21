@@ -6,7 +6,7 @@ import classes from './AddItemContainer.module.css';
 const AddItemContainer = (props) => {
 	const [title, setTitle] = useState('');
 
-	const { addCard } = useContext(CardContext);
+	const { addCard, addList } = useContext(CardContext);
 
 	const listId = props.listId;
 
@@ -15,8 +15,20 @@ const AddItemContainer = (props) => {
 	};
 
 	const titleConfirmHandler = () => {
-		addCard(title, listId);
-		setTitle('');
+		switch (props.type) {
+			case 'card':
+				addCard(title, listId);
+				setTitle('');
+				break;
+			case 'list':
+				addList(title);
+				setTitle('');
+				break;
+			default:
+				addCard(title, listId);
+				setTitle('');
+				break;
+		}
 	};
 
 	const placeholderContent = `Enter a title for this ${props.type}...`;
