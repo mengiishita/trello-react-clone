@@ -13,3 +13,7 @@
 	padding: 8px;
 	border-radius: 6px;
 }
+
+.add-card-container textarea {
+	height: 75px;
+}

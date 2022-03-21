@@ -1,37 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import List from '../List/List';
-import useHttp from '../../hooks/use-http';
+import data from '../../utils/data.js';
 
 import classes from './Board.module.css';
 
 const Board = () => {
-	const [lists, setLists] = useState([]);
+	const [lists, setLists] = useState(data);
 
-	const { isLoading, error, sendRequest: fetchLists } = useHttp();
-
-	useEffect(() => {
-		const transformLists = (listsObj) => {
-			const loadedLists = [];
-
-			for (const listKey in listsObj) {
-				loadedLists.push({
-					id: listKey,
-					title: listsObj[listKey].title,
-					cards: listsObj[listKey].cards,
-				});
-			}
-			setLists(loadedLists);
-		};
-		fetchLists(
-			{
-				url: 'https://react-trello-clone-1de1e-default-rtdb.firebaseio.com/lists.json',
-			},
-			transformLists
-		);
-	}, [fetchLists]);
-
-	const listData = lists.map((list) => {
-		return <List key={list.id} title={list.title} cards={list.cards} />;
+	const listData = data.listIds.map((listId) => {
+		const list = data.lists[listId];
+		return <List key={listId} list={list} />;
 	});
 
 	return (
