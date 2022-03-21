@@ -8,7 +8,7 @@ import classes from './List.module.css';
 const List = (props) => {
 	return (
 		<div className={classes.list}>
-			<ListTitle title={props.list.title} />
+			<ListTitle title={props.list.title} listId={props.list.id} />
 			<CardList cards={props.list.cards} />
 			<AddItemContainer type='card' listId={props.list.id} />
 		</div>

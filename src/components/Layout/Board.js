@@ -34,18 +34,32 @@ const Board = () => {
 		const newList = {
 			id: newListId,
 			title,
-			cards: []
-		}
+			cards: [],
+		};
 		const updatedList = {
 			listIds: [...content.listIds, newListId],
 			lists: {
-				...data.lists,
-				[newListId]: newList
-			}
+				...content.lists,
+				[newListId]: newList,
+			},
+		};
+		setContent(updatedList);
+	};
 
-		}
-		setContent(updatedList)
-	}
+	const updateListTitle = (title, listId) => {
+		const list = content.lists[listId];
+		list.title = title;
+
+		const updatedList = {
+			...content,
+			lists: {
+				...content.lists,
+				[listId]: list
+			}
+		};
+
+		setContent(updatedList);
+	};
 
 	const listData = content.listIds.map((listId) => {
 		const list = content.lists[listId];
@@ -53,10 +67,10 @@ const Board = () => {
 	});
 
 	return (
-		<CardContext.Provider value={{ addCard, addList }}>
+		<CardContext.Provider value={{ addCard, addList, updateListTitle }}>
 			<div className={classes.board}>
 				{listData}
-				<AddItemContainer type="list"/>
+				<AddItemContainer type='list' />
 			</div>
 		</CardContext.Provider>
 	);
