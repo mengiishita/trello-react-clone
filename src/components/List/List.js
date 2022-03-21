@@ -5,12 +5,14 @@ import AddCardContainer from '../Card/AddCard/AddCardContainer';
 
 import classes from './List.module.css';
 
-const List = () => {
-    return <div className={classes.list}>
-        <ListTitle />
-        <CardList />
-        <AddCardContainer />
-    </div>
-}
+const List = (props) => {
+	return (
+		<div className={classes.list}>
+			<ListTitle title={props.title} />
+			<CardList cards={props.cards} />
+			<AddCardContainer />
+		</div>
+	);
+};
 
 export default List;
