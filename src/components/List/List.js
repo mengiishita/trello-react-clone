@@ -1,7 +1,7 @@
 import React from 'react';
 import ListTitle from './ListTitle';
 import CardList from '../Card/CardList';
-import AddCardContainer from '../Card/AddCard/AddCardContainer';
+import AddItemContainer from '../Layout/AddItemContainer';
 
 import classes from './List.module.css';
 
@@ -10,7 +10,7 @@ const List = (props) => {
 		<div className={classes.list}>
 			<ListTitle title={props.list.title} />
 			<CardList cards={props.list.cards} />
-			<AddCardContainer listId={props.list.id} />
+			<AddItemContainer type='card' listId={props.list.id} />
 		</div>
 	);
 };

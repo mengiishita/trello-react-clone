@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import List from '../List/List';
 import data from '../../utils/data.js';
 import CardContext from '../../store/card-context';
+import AddItemContainer from './AddItemContainer';
 
 import classes from './Board.module.css';
 
@@ -36,8 +37,8 @@ const Board = () => {
 	return (
 		<CardContext.Provider value={{ addCard }}>
 			<div className={classes.board}>
-				Project Trello
 				{listData}
+				<AddItemContainer type="list"/>
 			</div>
 		</CardContext.Provider>
 	);
