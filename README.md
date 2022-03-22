@@ -1,6 +1,36 @@
-# Getting Started with Create React App
+# Trello Clone in React
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Description
+
+This is a Trello clone using React. For now, some initial data is being fetched from a local file named data.js. 
+
+It is possible to add new cards to a List, add a new List as well as edit the title of an existing List.
+The user can drag and drop cards in the same list as well as other lists and drag and drop an entire list to change the order in which the lists appear. Drag and drop feature is using react-beautiful-dnd package.
+
+## Packages and Technologies used:
+
+[React](https://reactjs.org/docs/getting-started.html)
+
+[React-hooks](https://reactjs.org/docs/hooks-intro.html)
+
+[CSS modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/)
+
+[react-beautiful-dnd](https://www.npmjs.com/package/react-beautiful-dnd)
+
+## Improvements:
+
+1. Replace local data with a dummy realtime database using [Firebase](https://firebase.google.com/). This will make data persistance easier and data can then be fetched/updated using Javascript's inbuilt fetch() API or [axios](https://www.npmjs.com/package/axios) HTTP client.
+2. Add extensive unit test cases using [jest](https://jestjs.io/).
+
+## Steps to start the project on local:
+
+1. Clone this repository.
+2. In the local folder execute `npm install` to install all the project dependencies.
+3. Run `npm start` and open [http://localhost:3000](http://localhost:3000) to view this in your browser.
+
+
 
 ## Available Scripts
 
@@ -38,33 +68,3 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
