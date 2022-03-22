@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { v4 as uuid } from 'uuid';
 import List from '../List/List';
 import data from '../../utils/data.js';
 import CardContext from '../../store/card-context';
 import AddItemContainer from './AddItemContainer';
 
 import classes from './Board.module.css';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 const Board = () => {
 	const [content, setContent] = useState(data);
 
 	const addCard = (title, listId) => {
-		const newCardId = Math.random();
+		const newCardId = uuid();
 		const newCard = {
 			id: newCardId,
 			title,
@@ -30,7 +32,7 @@ const Board = () => {
 	};
 
 	const addList = (title) => {
-		const newListId = Math.random();
+		const newListId = uuid();
 		const newList = {
 			id: newListId,
 			title,
@@ -54,11 +56,38 @@ const Board = () => {
 			...content,
 			lists: {
 				...content.lists,
-				[listId]: list
-			}
+				[listId]: list,
+			},
 		};
 
 		setContent(updatedList);
+	};
+
+	const dragEndHandler = (result) => {
+		const { destination, source, draggableId } = result;
+
+		if (!destination) {
+			return;
+		}
+
+		const sourceList = content.lists[source.droppableId];
+		const destinationList = content.lists[destination.droppableId];
+		const draggingCard = sourceList.cards.filter(
+			(card) => card.id === draggableId
+		)[0];
+
+		if (source.droppableId === destination.droppableId) {
+			sourceList.cards.splice(source.index, 1);
+			destinationList.cards.splice(destination.index, 0, draggingCard);
+			const updatedList = {
+				...content,
+				lists: {
+					...content.lists,
+					[sourceList.id]: destinationList,
+				},
+			};
+			setContent(updatedList);
+		}
 	};
 
 	const listData = content.listIds.map((listId) => {
@@ -68,10 +97,12 @@ const Board = () => {
 
 	return (
 		<CardContext.Provider value={{ addCard, addList, updateListTitle }}>
-			<div className={classes.board}>
-				{listData}
-				<AddItemContainer type='list' />
-			</div>
+			<DragDropContext onDragEnd={dragEndHandler}>
+				<div className={classes.board}>
+					{listData}
+					<AddItemContainer type='list' />
+				</div>
+			</DragDropContext>
 		</CardContext.Provider>
 	);
 };
