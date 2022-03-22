@@ -76,18 +76,29 @@ const Board = () => {
 			(card) => card.id === draggableId
 		)[0];
 
+		sourceList.cards.splice(source.index, 1);
+		destinationList.cards.splice(destination.index, 0, draggingCard);
+		let updatedList = {};
+
 		if (source.droppableId === destination.droppableId) {
-			sourceList.cards.splice(source.index, 1);
-			destinationList.cards.splice(destination.index, 0, draggingCard);
-			const updatedList = {
+			updatedList = {
 				...content,
 				lists: {
 					...content.lists,
 					[sourceList.id]: destinationList,
 				},
 			};
-			setContent(updatedList);
+		} else {
+			updatedList = {
+				...content,
+				lists: {
+					...content.lists,
+					[sourceList.id]: sourceList,
+					[destinationList.id]: destinationList,
+				},
+			};
 		}
+		setContent(updatedList);
 	};
 
 	const listData = content.listIds.map((listId) => {
