@@ -19,11 +19,6 @@ The user can drag and drop cards in the same list as well as other lists and dra
 
 [react-beautiful-dnd](https://www.npmjs.com/package/react-beautiful-dnd)
 
-## Improvements:
-
-1. Replace local data with a dummy realtime database using [Firebase](https://firebase.google.com/). This will make data persistance easier and data can then be fetched/updated using Javascript's inbuilt fetch() API or [axios](https://www.npmjs.com/package/axios) HTTP client.
-2. Add extensive unit test cases using [jest](https://jestjs.io/).
-
 ## Steps to start the project on local:
 
 1. Clone this repository.
