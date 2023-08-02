@@ -9,6 +9,10 @@ This is a Trello clone using React. For now, some initial data is being fetched 
 It is possible to add new cards to a List, add a new List as well as edit the title of an existing List.
 The user can drag and drop cards in the same list as well as other lists and drag and drop an entire list to change the order in which the lists appear. Drag and drop feature is using react-beautiful-dnd package.
 
+## Links:
+
+Live link for website: [im-trello.netlify.app](im-trello.netlify.app)
+
 ## Packages and Technologies used:
 
 [React](https://reactjs.org/docs/getting-started.html)
