@@ -11,7 +11,7 @@ The user can drag and drop cards in the same list as well as other lists and dra
 
 ## Links:
 
-Live link for website: [im-trello.netlify.app](im-trello.netlify.app)
+Live link for website: [https://im-trello.netlify.app/](https://im-trello.netlify.app/)
 
 ## Packages and Technologies used:
 
